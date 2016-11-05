@@ -7,22 +7,23 @@ import cors from 'cors';
 import inflector from 'json-inflector';
 
 export default () => {
-  const router = Router();
+  const api = Router();
+
   const inflectorOptions = {
     request: 'camelize',
     response: 'camelizeLower',
   };
 
-  router.use(cors());
-  router.use(helmet());
-  router.use(bodyParser.json());
-  router.use(inflector(inflectorOptions));
+  api.use(cors());
+  api.use(helmet());
+  api.use(bodyParser.json());
+  api.use(inflector(inflectorOptions));
 
   winston.remove(winston.transports.Console);
   winston.add(winston.transports.Console, { timestamp: true, colorize: true });
 
   // Log all requests
-  router.use(expressWinston.logger({
+  api.use(expressWinston.logger({
     transports: [
       new winston.transports.Console({
         timestamp: true,
@@ -32,9 +33,13 @@ export default () => {
     expressFormat: true,
   }));
 
-  router.get('/favicon.ico', (req, res) => {
+  api.get('/', (req, res) => {
+    res.json({ message: `Hello world from ${process.env.SERVICE_NAME}` });
+  });
+
+  api.get('/favicon.ico', (req, res) => {
     res.destroy();
   });
 
-  return router;
+  return api;
 };

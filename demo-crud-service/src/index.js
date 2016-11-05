@@ -1,5 +1,5 @@
 import http from 'http';
-import express from 'express';
+import express, { Router } from 'express';
 import winston from 'winston';
 
 import initializeDb from './db';
