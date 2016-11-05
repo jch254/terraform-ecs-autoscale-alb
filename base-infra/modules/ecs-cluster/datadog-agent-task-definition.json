@@ -1,0 +1,32 @@
+[
+  {
+    "environment": [
+        {
+            "name": "API_KEY",
+            "value": "${datadog_api_key}"
+        }
+    ],
+    "mountPoints": [
+        {
+            "sourceVolume": "docker_sock",
+            "containerPath": "/var/run/docker.sock",
+            "readOnly": false
+        },
+        {
+            "sourceVolume": "proc",
+            "containerPath": "/host/proc",
+            "readOnly": true
+        },
+        {
+            "sourceVolume": "cgroup",
+            "containerPath": "/host/sys/fs/cgroup",
+            "readOnly": true
+        }
+    ],
+    "name": "dd-agent",
+    "image": "datadog/docker-dd-agent:ecs",
+    "cpu": 10,
+    "memory": 128,
+    "essential": true
+  }
+]

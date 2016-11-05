@@ -1,0 +1,23 @@
+[
+  {
+    "environment": [],
+    "mountPoints": [
+      {
+          "sourceVolume": "www",
+          "containerPath": "/usr/share/nginx/html",
+          "readOnly": true
+      }
+    ],
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 80
+      }
+    ],
+    "name": "hello-world",
+    "image": "nginx",
+    "cpu": 10,
+    "memory": 128,
+    "essential": true
+  }
+]

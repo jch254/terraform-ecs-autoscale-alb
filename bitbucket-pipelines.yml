@@ -1,0 +1,10 @@
+image: jch254/docker-node-terraform-aws:latest
+pipelines:
+  branches:
+    master:
+      - step:
+          script:
+            - ./base-infra/deploy.bash
+            - ./alpha-service/deploy.bash
+            - ./beta-service/deploy.bash
+            - ./charlie-service/deploy.bash

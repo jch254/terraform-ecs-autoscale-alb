@@ -1,0 +1,24 @@
+[
+  {
+    "name": "${service_name}",
+    "image": "${docker_image}:${docker_tag}",
+    "cpu": ${container_cpu},
+    "memory": ${container_memory},
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": ${container_port}
+      }
+    ],
+    "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-group": "${log_group_name}",
+            "awslogs-region": "${log_group_region}"
+        }
+    },
+    "environment": [
+      { "name": "SERVICE_NAME", "value": "${service_name}"}
+    ]
+  }
+]
