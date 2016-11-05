@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-cd infra
+cd alpha-service
 
 terraform remote config -backend=s3 \
   -backend-config="bucket=603-terraform-remote-state" \
