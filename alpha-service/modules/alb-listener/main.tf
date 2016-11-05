@@ -23,4 +23,6 @@ resource "aws_alb_listener_rule" "alpha_service_listener" {
     field = "path-pattern"
     values = ["/alpha/*"]
   }
+
+  depends_on = ["aws_alb_target_group.alpha_service_tg"]
 }

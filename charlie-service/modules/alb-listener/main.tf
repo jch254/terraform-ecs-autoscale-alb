@@ -23,4 +23,6 @@ resource "aws_alb_listener_rule" "charlie_service_listener" {
     field = "path-pattern"
     values = ["/charlie/*"]
   }
+
+  depends_on = ["aws_alb_target_group.charlie_service_tg"]
 }

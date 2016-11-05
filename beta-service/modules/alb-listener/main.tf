@@ -23,4 +23,6 @@ resource "aws_alb_listener_rule" "beta_service_listener" {
     field = "path-pattern"
     values = ["/beta/*"]
   }
+
+  depends_on = ["aws_alb_target_group.beta_service_tg"]
 }
