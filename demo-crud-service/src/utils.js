@@ -1,5 +1,13 @@
 import winston from 'winston';
 
+const urlRewriter = (req, res, next) => {
+  const url = req.url.split('/');
+
+  req.url = `/${url.slice(2).join('/')}`;
+
+  next();
+};
+
 const topLevelErrorHandler = (err, req, res) => {
   winston.error(`${err.message}`);
 
@@ -22,4 +30,4 @@ const createErrorResponse = (message, statusCode) => {
 };
 
 
-export { topLevelErrorHandler, createErrorResponse };
+export { urlRewriter, topLevelErrorHandler, createErrorResponse };

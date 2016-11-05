@@ -6,6 +6,7 @@
   },
   parser: "babel-eslint",
   rules: {
-    max-len: ["error", 120, 2]
+    max-len: ["error", 120, 2],
+    no-param-reassign: 1
   }
 }

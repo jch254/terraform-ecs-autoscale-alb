@@ -6,13 +6,17 @@ import initializeDb from './db';
 import middleware from './middleware';
 import healthcheck from './healthcheck';
 import items from './items';
-import { topLevelErrorHandler } from './utils';
+import { urlRewriter, topLevelErrorHandler } from './utils';
 
 const app = express();
 
 app.server = http.createServer(app);
 
 initializeDb((db) => {
+  if (process.env.NODE_ENV === 'production') {
+    app.use(urlRewriter);
+  }
+
   app.use(middleware());
   app.use(healthcheck({ db }));
   app.use(items({ db }));
