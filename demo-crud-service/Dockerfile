@@ -11,7 +11,7 @@ COPY src src
 RUN yarn run build
 
 ENV NODE_ENV=production
-ENV PORT=5000
+ENV PORT=80
 
 EXPOSE ${PORT}
 
