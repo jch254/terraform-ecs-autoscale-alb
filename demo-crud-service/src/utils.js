@@ -8,6 +8,10 @@ const urlRewriter = (req, res, next) => {
   next();
 };
 
+const notFoundHandler = (err, req, res) => {
+  res.status(404).json({ message: 'Matrix glitch' });
+};
+
 const topLevelErrorHandler = (err, req, res) => {
   winston.error(`${err.message}`);
 
@@ -30,4 +34,4 @@ const createErrorResponse = (message, statusCode) => {
 };
 
 
-export { urlRewriter, topLevelErrorHandler, createErrorResponse };
+export { urlRewriter, notFoundHandler, topLevelErrorHandler, createErrorResponse };
