@@ -16,9 +16,9 @@ if (process.env.NODE_ENV === 'production') {
   app.use(urlRewriter);
 }
 
-api.get('/', (req, res) => {
+app.use(api.get('/', (req, res) => {
   res.json({ message: `Hello world from ${process.env.SERVICE_NAME || 'demo-api'}` });
-});
+}));
 
 app.use(middleware());
 app.use(healthcheck());
