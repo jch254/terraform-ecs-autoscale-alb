@@ -33,9 +33,5 @@ export default () => {
     expressFormat: true,
   }));
 
-  api.get('/', (req, res) => {
-    res.json({ message: `Hello world from ${process.env.SERVICE_NAME || 'demo-api'}` });
-  });
-
   return api;
 };

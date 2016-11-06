@@ -1,5 +1,5 @@
 import http from 'http';
-import express from 'express';
+import express, { Router } from 'express';
 import winston from 'winston';
 
 import middleware from './middleware';
@@ -8,12 +8,17 @@ import items from './items';
 import { urlRewriter, topLevelErrorHandler } from './utils';
 
 const app = express();
+const api = Router();
 
 app.server = http.createServer(app);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(urlRewriter);
 }
+
+api.get('/', (req, res) => {
+  res.json({ message: `Hello world from ${process.env.SERVICE_NAME || 'demo-api'}` });
+});
 
 app.use(middleware());
 app.use(healthcheck());
