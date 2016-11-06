@@ -4,6 +4,7 @@ service_name = "alpha-service"
 
 container_port = "80"
 
-docker_image = "jch254/ecs-demo-crud-service"
+docker_image = "jch254/ecs-demo-api"
 
 docker_tag = "latest"
+w

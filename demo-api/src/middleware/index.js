@@ -34,11 +34,7 @@ export default () => {
   }));
 
   api.get('/', (req, res) => {
-    res.json({ message: `Hello world from ${process.env.SERVICE_NAME}` });
-  });
-
-  api.get('/favicon.ico', (req, res) => {
-    res.destroy();
+    res.json({ message: `Hello world from ${process.env.SERVICE_NAME || 'demo-api'}` });
   });
 
   return api;

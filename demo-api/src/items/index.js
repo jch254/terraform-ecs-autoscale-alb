@@ -4,7 +4,7 @@ export default () => {
   const api = Router();
 
   api.get('/items', (req, res) => {
-    res.json({ items: [] });
+    res.json({ items: [{ id: 23, name: 'Cheers cobber' }] });
   });
 
   return api;

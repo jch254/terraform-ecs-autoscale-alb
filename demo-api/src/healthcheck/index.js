@@ -8,8 +8,6 @@ export default () => {
   });
 
   api.get('/healthcheck', (req, res) => {
-    // TODO: Check DB health
-
     res.json({ message: 'All good' });
   });
 
