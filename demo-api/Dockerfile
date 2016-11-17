@@ -1,6 +1,8 @@
-FROM node:7
+FROM mhart/alpine-node:latest
 
-RUN npm install -g yarn@0.16.1
+RUN apk add --update python ca-certificates
+
+RUN npm install -g yarn@0.17.3
 
 WORKDIR /app
 

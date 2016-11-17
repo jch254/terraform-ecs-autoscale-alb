@@ -4,7 +4,8 @@ pipelines:
     master:
       - step:
           script:
-            - ./base-infra/deploy.bash
-            - ./alpha-service/deploy.bash
-            - ./beta-service/deploy.bash
-            - ./charlie-service/deploy.bash
+            - echo 'Refer to README.md for instructions and then uncomment steps below'
+            #- ./base-infra/deploy.bash
+            #- ./alpha-service/deploy.bash
+            #- ./beta-service/deploy.bash
+            #- ./charlie-service/deploy.bash
