@@ -12,7 +12,7 @@ This repo contains Terraform configuration for an ECS cluster running three serv
 
 As far as I could tell the ALB doesn't currently support URL Rewriting so I've had to manually perform this at the application level.
 
-The code for the demo API is in the [/base-infra](../master/base-infra/) directory and is built and hosted on Docker Hub.
+The code for the demo API is in the [/demo-api](../master/demo-api/) directory and is built and hosted on Docker Hub.
 
 [![Dockerhub badge](http://dockeri.co/image/jch254/ecs-demo-api)](https://hub.docker.com/r/jch254/ecs-demo-api)
 
